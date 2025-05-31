@@ -117,11 +117,17 @@
                             <a href="{{route('orders')}}" type="button" class="btn btn-primary mb-2" style="width: 150px; margin-left: 20px;">
                                 Замовлення
                             </a>
-                            <a href="{{route('products')}}" type="button" class="btn btn-primary mb-2" style="width: 150px; margin-left: 20px;">
+                            <a href="{{route('admin.products.index')}}" type="button" class="btn btn-primary mb-2" style="width: 150px; margin-left: 20px;">
+                               Управління продукцією
+                            </a>
+                            <a href="{{route('products')}}" type="button" class="btn btn-secondary mb-2" style="width: 150px; margin-left: 20px;">
                                Пошук продукції
                             </a>
-                            <a href="{{route('order.forecast')}}" type="button" class="btn btn-primary mb-2" style="width: 150px; margin-left: 20px;">
+                            <a href="{{route('order.forecast')}}" type="button" class="btn btn-info mb-2" style="width: 150px; margin-left: 20px;">
                                Прогнозування
+                            </a>
+                            <a href="{{route('admin.analytics.index')}}" type="button" class="btn btn-warning mb-2" style="width: 150px; margin-left: 20px;">
+                               Аналітика
                             </a>
                         </div>
 
@@ -148,7 +154,7 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($clients as $user)
+                                            @foreach($clients ?? [] as $user)
                                                 <tr>
                                                     <th scope="row">{{ ++$loop->index }}</th>
                                                     <td>{{ $user->name }}</td>
@@ -213,7 +219,7 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                @foreach($data as $product)
+                                                @foreach($data ?? [] as $product)
                                                     <tr>
                                                         <th scope="row">{{ ++$loop->index }}</th>
                                                         <td>{{ $product->title }}</td>
@@ -245,4 +251,3 @@
     <script src="{{ asset('js/process_ajax.js') }}" type="text/javascript"></script>
 </body>
 </html>
-

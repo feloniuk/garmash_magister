@@ -23,7 +23,7 @@
                                     </div>
 
                                     <div class="form-group col">
-                                        <label for="param1">Параметр 1 (0-3):</label>
+                                        <label for="param1">Порядок авторегресії (0-3):</label>
                                         <input type="number" id="param1" name="param1" class="form-control" min="0"
                                                max="3" step="1" required>
                                     </div>
@@ -31,13 +31,13 @@
 
                                 <div class="row">
                                     <div class="form-group col">
-                                        <label for="param2">Параметр 2 (0-3):</label>
+                                        <label for="param2">Прорядок деференціювання (0-3):</label>
                                         <input type="number" id="param2" name="param2" class="form-control" min="0"
                                                max="3" step="1" required>
                                     </div>
 
                                     <div class="form-group col">
-                                        <label for="param3">Параметр 3 (0-3):</label>
+                                        <label for="param3">Порядок ковзаючого середнього (0-3):</label>
                                         <input type="number" id="param3" name="param3" class="form-control" min="0"
                                                max="3" step="1" required>
                                     </div>

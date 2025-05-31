@@ -30,7 +30,7 @@ class HomeController extends Controller
     {
         $clients = DB::select("SELECT * FROM `clients`");
 
-        $data = Product::all();
+        $data = Product::active()->get();
         //check order
         $order = isset($_COOKIE['order']) ? (array)json_decode($_COOKIE['order']) : [];
 
@@ -43,6 +43,24 @@ class HomeController extends Controller
         }
 
         return view('welcome', ['data' => $data, 'clients' => $clients]);
+    }
+
+    /**
+     * Show individual product page
+     */
+    public function showProduct(Product $product)
+    {
+        $clients = DB::select("SELECT * FROM `clients`");
+
+        // Check if product is in current order
+        $order = isset($_COOKIE['order']) ? (array)json_decode($_COOKIE['order']) : [];
+        $product->ordered = in_array($product->id, array_keys($order));
+
+        return view('product_show', [
+            'product' => $product,
+            'clients' => $clients,
+            'data' => Product::all() // для сайдбара
+        ]);
     }
 
     public function users()
